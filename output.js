@@ -1,4 +1,4 @@
-//Thu Dec 19 2024 05:04:24 GMT+0000 (Coordinated Universal Time)
+//Thu Dec 19 2024 05:07:35 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 const initScript = require("../utils/initScript");
@@ -36,7 +36,9 @@ const headers = {
     await main();
     await $.wait(sudojia.getRandomWait(2000, 2500));
   }
-  message && (await notify.sendNotify("「" + $.name + "」", "" + message));
+  if (message) {
+    await notify.sendNotify("「" + $.name + "」", "" + message);
+  }
 })().catch(_0x1aefac => $.logErr(_0x1aefac)).finally(() => $.done());
 async function main() {
   await getUserInfo();
